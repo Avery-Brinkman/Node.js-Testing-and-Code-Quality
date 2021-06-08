@@ -4,17 +4,17 @@
  * Module dependencies.
  */
 
-var app = require('../app');
-var debug = require('debug')('nadia:server');
-var http = require('http');
-const db = require('sqlite');
+var app = require("../app");
+var debug = require("debug")("nadia:server");
+var http = require("http");
+const db = require("sqlite");
 
 /**
  * Get port from environment and store in Express.
  */
 
-var port = normalizePort(process.env.PORT || '3000');
-app.set('port', port);
+var port = normalizePort(process.env.PORT || "3000");
+app.set("port", port);
 
 /**
  * Create HTTP server.
@@ -27,25 +27,25 @@ var server = http.createServer(app);
  */
 
 // Connect to the database.
- Promise.resolve()
-   .then(() => {
-     debug('sqlite opening...');
-     db.open('database.sqlite', { Promise })
-   })
-   .then(() => {
-     debug('sqlite migration running...')
-     db.migrate({ force: 'last' });
-   })
-   .then(() => {
-     debug('sqlite connected')
+Promise.resolve()
+  .then(() => {
+    debug("sqlite opening...");
+    db.open("database.sqlite", { Promise });
+  })
+  .then(() => {
+    debug("sqlite migration running...");
+    db.migrate({ force: "last" });
+  })
+  .then(() => {
+    debug("sqlite connected");
 
-     server.listen(port);
-     server.on('error', onError);
-     server.on('listening', onListening);
-   })
-   .catch(err => {
-     throw err;
-   });
+    server.listen(port);
+    server.on("error", onError);
+    server.on("listening", onListening);
+  })
+  .catch((err) => {
+    throw err;
+  });
 
 /**
  * Normalize a port into a number, string, or false.
@@ -72,22 +72,20 @@ function normalizePort(val) {
  */
 
 function onError(error) {
-  if (error.syscall !== 'listen') {
+  if (error.syscall !== "listen") {
     throw error;
   }
 
-  var bind = typeof port === 'string'
-    ? 'Pipe ' + port
-    : 'Port ' + port;
+  var bind = typeof port === "string" ? "Pipe " + port : "Port " + port;
 
   // handle specific listen errors with friendly messages
   switch (error.code) {
-    case 'EACCES':
-      console.error(bind + ' requires elevated privileges');
+    case "EACCES":
+      console.error(bind + " requires elevated privileges");
       process.exit(1);
       break;
-    case 'EADDRINUSE':
-      console.error(bind + ' is already in use');
+    case "EADDRINUSE":
+      console.error(bind + " is already in use");
       process.exit(1);
       break;
     default:
@@ -101,8 +99,6 @@ function onError(error) {
 
 function onListening() {
   var addr = server.address();
-  var bind = typeof addr === 'string'
-    ? 'pipe ' + addr
-    : 'port ' + addr.port;
-  debug('Listening on ' + bind);
+  var bind = typeof addr === "string" ? "pipe " + addr : "port " + addr.port;
+  debug("Listening on " + bind);
 }
