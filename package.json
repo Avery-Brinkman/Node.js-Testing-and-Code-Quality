@@ -10,7 +10,8 @@
   "scripts": {
     "debug": "cross-env DEBUG=nadia:* nodemon",
     "eslint": "eslint",
-    "start": "node bin/www"
+    "start": "node bin/www",
+    "test": "mocha --recursive"
   },
   "dependencies": {
     "basic-auth": "^1.1.0",
@@ -28,8 +29,10 @@
     "sqlite": "^2.8.0"
   },
   "devDependencies": {
+    "chai": "^4.3.4",
     "cross-env": "^5.0.1",
     "eslint": "^7.28.0",
+    "mocha": "^9.0.0",
     "nodemon": "^2.0.7"
   }
 }
