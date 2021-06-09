@@ -19,6 +19,7 @@ describe("Reservation Schema", function () {
       should.not.exist(Reservation.combineDateTime(date, time));
     });
   });
+
   context("Validator", function () {
     it("should pass a valid reservation with no optional fields", function (done) {
       const reservation = new Reservation({

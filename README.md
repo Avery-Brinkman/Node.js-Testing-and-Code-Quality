@@ -28,6 +28,16 @@ Visit http://editorconfig.org for details.
 
 This project uses ESLint.
 
+### Testing
+
+This project uses Mocha and Chai for testing
+
+To execute tests:
+
+```bash
+npm test
+```
+
 ### Debugging
 
 This project uses https://www.npmjs.com/package/debug for development logging. To start `nodemon` and enable logging:
