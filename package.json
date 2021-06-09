@@ -9,6 +9,7 @@
   "private": true,
   "scripts": {
     "debug": "cross-env DEBUG=nadia:* nodemon",
+    "eslint": "eslint",
     "start": "node bin/www"
   },
   "dependencies": {
@@ -28,6 +29,7 @@
   },
   "devDependencies": {
     "cross-env": "^5.0.1",
+    "eslint": "^7.28.0",
     "nodemon": "^2.0.7"
   }
 }
