@@ -11,7 +11,7 @@
     "debug": "cross-env DEBUG=nadia:* nodemon",
     "eslint": "eslint",
     "start": "node bin/www",
-    "test": "mocha --recursive"
+    "test": "cross-env DEBUG=nadia:* mocha --recursive"
   },
   "dependencies": {
     "basic-auth": "^1.1.0",
@@ -33,6 +33,9 @@
     "cross-env": "^5.0.1",
     "eslint": "^7.28.0",
     "mocha": "^9.0.0",
-    "nodemon": "^2.0.7"
+    "nodemon": "^2.0.7",
+    "proxyquire": "^2.1.3",
+    "sinon": "^11.1.1",
+    "sinon-chai": "^3.7.0"
   }
 }
